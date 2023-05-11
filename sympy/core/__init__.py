@@ -28,7 +28,7 @@ from .evalf import PrecisionExhausted, N
 from .containers import Tuple, Dict
 from .exprtools import gcd_terms, factor_terms, factor_nc
 from .parameters import evaluate
-from .kind import UndefinedKind, NumberKind, BooleanKind
+from .kind import UndefinedKind, NumberKind, QuaternionKind, BooleanKind
 from .traversal import preorder_traversal, bottom_up, use, postorder_traversal
 from .sorting import default_sort_key, ordered
 
@@ -92,7 +92,7 @@ __all__ = [
     'GoldenRatio',
     'TribonacciConstant',
 
-    'UndefinedKind', 'NumberKind', 'BooleanKind',
+    'UndefinedKind', 'NumberKind', 'QuaternionKind', 'BooleanKind',
 
     'preorder_traversal', 'bottom_up', 'use', 'postorder_traversal',
 

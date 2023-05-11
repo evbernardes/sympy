@@ -12,6 +12,7 @@ from sympy.matrices.dense import MutableDenseMatrix as Matrix
 from sympy.core.sympify import sympify, _sympify
 from sympy.core.expr import Expr
 from sympy.core.logic import fuzzy_not, fuzzy_or
+from sympy.core.kind import QuaternionKind
 
 from mpmath.libmp.libmpf import prec_to_dps
 
@@ -157,6 +158,10 @@ class Quaternion(Expr):
         norm = sympify(norm)
         _check_norm(self.args, norm)
         self._norm = norm
+
+    @property
+    def kind(self):
+        return QuaternionKind
 
     @property
     def a(self):

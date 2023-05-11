@@ -1,5 +1,5 @@
 from sympy.core.add import Add
-from sympy.core.kind import NumberKind, UndefinedKind
+from sympy.core.kind import NumberKind, UndefinedKind, QuaternionKind
 from sympy.core.mul import Mul
 from sympy.core.numbers import pi, zoo, I, AlgebraicNumber
 from sympy.core.singleton import S
@@ -8,6 +8,7 @@ from sympy.integrals.integrals import Integral
 from sympy.core.function import Derivative
 from sympy.matrices import (Matrix, SparseMatrix, ImmutableMatrix,
     ImmutableSparseMatrix, MatrixSymbol, MatrixKind, MatMul)
+from sympy.algebras.quaternion import Quaternion
 
 comm_x = Symbol('x')
 noncomm_x = Symbol('x', commutative=False)
@@ -55,3 +56,7 @@ def test_MatMul_kind():
     M = Matrix([[1,2],[3,4]])
     assert MatMul(2, M).kind is MatrixKind(NumberKind)
     assert MatMul(comm_x, M).kind is MatrixKind(NumberKind)
+
+def test_Quaternion_kind():
+    q = Quaternion(1, 2, 3, 4)
+    assert q.kind is QuaternionKind

@@ -162,6 +162,36 @@ class _NumberKind(Kind):
 NumberKind = _NumberKind()
 
 
+class _QuaternionKind(Kind):
+    """
+    Kind for quaternion objects.
+
+    Quaternions do not form a field, but they form an algebra.
+    They commute under addition, but not under multiplication.
+
+    Examples
+    ========
+
+    >>> from sympy import Quaternion
+    >>> q = Quaternion()
+    >>> q.kind
+    QuaternionKind
+
+    See Also
+    ========
+
+    sympy.algebras.Quaternion : Quaternion class
+
+    """
+    def __new__(cls):
+        return super().__new__(cls)
+
+    def __repr__(self):
+        return "QuaternionKind"
+
+QuaternionKind = _QuaternionKind()
+
+
 class _BooleanKind(Kind):
     """
     Kind for boolean objects.
